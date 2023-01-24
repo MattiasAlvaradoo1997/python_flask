@@ -1,0 +1,139 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: Api Rest para las entidades Instituciones, Proyectos y Usuarios
+  description: Esta Api Rest tiene como fin facilitar la gestión de estas entidades
+  termsOfService:
+    url: https://example.com/terms/
+    name: Terms of Service
+servers:
+  - url: http://localhost:5000
+paths:
+  /instituciones:
+    get:
+      description: Lista todas las instituciones
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nombre:
+                    type: string
+                  descripción:
+                    type: string
+                  dirección:
+                    type: string
+                  fecha_creación:
+                    type: string
+    post:
+      parameters:
+        - in: body
+          name: body
+          description: 'Añadir una institución'
+          required: true
+          schema:
+            type: object
+            properties:
+              nombre:
+                type: string
+              descripción:
+                type: string
+              dirección:
+                type: string
+              fecha_creación:
+                type: string
+      description: Añadir una institución
+      responses:
+        '201':
+          description: OK
+  /proyectos:
+    get:
+      description: Lista todas los proyectos
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nombre:
+                    type: string
+                  descripción:
+                    type: string
+                  fecha_inicio:
+                    type: string
+                  fecha_termino:
+                    type: string
+    post:
+      parameters:
+        - in: body
+          name: body
+          description: 'Añadir un proyecto'
+          required: true
+          schema:
+            type: object
+            properties:
+              nombre:
+                type: string
+              descripción:
+                type: string
+              fecha_inicio:
+                type: string
+              fecha_termino:
+                type: string
+      description: Añadir un proyecto
+      responses:
+        '201':
+          description: OK
+  /usuarios:
+    get:
+      description: Lista todos los usuarios
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nombre:
+                    type: string
+                  apellidos:
+                    type: string
+                  rut:
+                    type: string
+                  fecha_nacimiento:
+                    type: string
+                  cargo:
+                    type: string
+                  edad:
+                    type: integer
+    post:
+      parameters:
+        - in: body
+          name: body
+          description: 'Añadir un usuario'
+          required: true
+          schema:
+            type: object
+            properties:
+              nombre:
+                type: string
+              apellidos:
+                type: string
+              rut:
+                type: string
+              fecha_nacimiento:
+                type: string
+              cargo:
+                type: string
+              edad:
+                type: integer
+      description: Añadir un usuario
+      responses:
+        '201':
+          description: OK
